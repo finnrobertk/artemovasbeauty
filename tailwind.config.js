@@ -8,54 +8,53 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Beauty salon color palette
-        'beauty': {
-          'pink': {
-            50: '#fef7f7',
-            100: '#fdeaea',
-            200: '#fbd5d5',
-            300: '#f7b2b2',
-            400: '#f18a8a',
-            500: '#e85d5d',
-            600: '#d63c3c',
-            700: '#b32f2f',
-            800: '#942b2b',
-            900: '#7c2a2a',
-          },
-          'gold': {
-            50: '#fffbeb',
-            100: '#fef3c7',
-            200: '#fde68a',
-            300: '#fcd34d',
-            400: '#fbbf24',
-            500: '#f59e0b',
-            600: '#d97706',
-            700: '#b45309',
-            800: '#92400e',
-            900: '#78350f',
-          },
-          'gray': {
-            50: '#f9fafb',
-            100: '#f3f4f6',
-            200: '#e5e7eb',
-            300: '#d1d5db',
-            400: '#9ca3af',
-            500: '#6b7280',
-            600: '#4b5563',
-            700: '#374151',
-            800: '#1f2937',
-            900: '#111827',
-          }
-        }
+        // Dark theme brand colors
+        background: '#1A1A1A',
+        foreground: '#F2EAB8',
+        primary: {
+          DEFAULT: '#F2EAB8',
+          foreground: '#1A1A1A',
+        },
+        accent: {
+          light: '#FFDD9E',
+          dark: '#DD9200',
+          DEFAULT: '#FFDD9E',
+        },
+        // Semantic colors based on brand palette
+        card: {
+          DEFAULT: '#2A2A2A',
+          foreground: '#F2EAB8',
+        },
+        popover: {
+          DEFAULT: '#2A2A2A',
+          foreground: '#F2EAB8',
+        },
+        secondary: {
+          DEFAULT: '#3A3A3A',
+          foreground: '#F2EAB8',
+        },
+        muted: {
+          DEFAULT: '#3A3A3A',
+          foreground: '#B8B8B8',
+        },
+        destructive: {
+          DEFAULT: '#DC2626',
+          foreground: '#F2EAB8',
+        },
+        border: '#3A3A3A',
+        input: '#3A3A3A',
+        ring: '#F2EAB8',
       },
       fontFamily: {
-        'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
-        'elegant': ['Playfair Display', 'serif'],
+        sans: ['Jost', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-gold': 'linear-gradient(135deg, #FFDD9E 0%, #DD9200 100%)',
+        'gradient-gold-hover': 'linear-gradient(135deg, #DD9200 0%, #FFDD9E 100%)',
       },
       spacing: {
         '18': '4.5rem',
         '88': '22rem',
-        '128': '32rem',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
