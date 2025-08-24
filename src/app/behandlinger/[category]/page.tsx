@@ -3,6 +3,7 @@ import { client } from '../../../../sanity/lib/client'
 import { treatmentCategoryBySlugQuery } from '../../../../sanity/lib/queries'
 import { TreatmentSubcategoriesGrid } from '@/components/sections/TreatmentSubcategoriesGrid'
 import { TreatmentsGrid } from '@/components/sections/TreatmentsGrid'
+import { Breadcrumbs } from '../../../components/ui/Breadcrumbs'
 
 interface Params {
   params: { category: string }
@@ -36,6 +37,12 @@ export default async function CategoryPage({ params }: Params) {
   return (
     <main className="container mx-auto px-4 py-12">
       <header className="mb-8">
+        <Breadcrumbs
+          items={[
+            { label: 'Behandlinger', href: '/behandlinger' },
+            { label: title },
+          ]}
+        />
         <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
         {category.description ? (
           <p className="text-muted-foreground mt-2">{category.description}</p>

@@ -4,6 +4,7 @@ import { client } from '../../../../../sanity/lib/client'
 import { treatmentSubcategoryBySlugQuery, treatmentBySlugQuery } from '../../../../../sanity/lib/queries'
 import { TreatmentDetail } from '../../../../components/sections/TreatmentDetail'
 import { urlFor } from '../../../../../sanity/lib/client'
+import { Breadcrumbs } from '../../../../components/ui/Breadcrumbs'
 
 interface Params {
   params: { category: string; subcategory: string }
@@ -40,6 +41,15 @@ export default async function SubcategoryPage({ params }: Params) {
   return (
     <main className="container mx-auto px-4 py-12">
       <header className="mb-8">
+        <Breadcrumbs
+          items={[
+            { label: 'Behandlinger', href: '/behandlinger' },
+            sub.category?.slug?.current
+              ? { label: sub.category.title || 'Kategori', href: `/behandlinger/${sub.category.slug.current}` }
+              : { label: 'Kategori' },
+            { label: sub.title },
+          ]}
+        />
         <h1 className="text-3xl font-semibold tracking-tight">{sub.title}</h1>
         {hasImage ? (
           <div className="mt-6 overflow-hidden rounded-lg border">

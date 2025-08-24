@@ -127,6 +127,19 @@ export const treatmentBySlugQuery = groq`
   }
 `
 
+// Testimonials for a given treatment by slug (only published)
+export const testimonialsForTreatmentQuery = groq`
+  *[_type == "testimonial" && defined(publishedAt) && references(*[_type == "treatment" && slug.current == $slug][0]._id)]
+    | order(publishedAt desc) {
+    _id,
+    name,
+    review,
+    rating,
+    image,
+    publishedAt
+  }
+`
+
 // Testimonials
 export const testimonialsQuery = groq`
   *[_type == "testimonial"] | order(publishedAt desc) {
