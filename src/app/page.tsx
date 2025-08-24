@@ -1,30 +1,31 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '../components/ui/button'
+import Link from 'next/link'
 
 export default function HomePage() {
+  const bookingUrl = '/booking'
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-foreground mb-6">
-            Velkommen til{' '}
-            <span className="bg-gradient-gold bg-clip-text text-transparent">Artemova&apos;s Beauty</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-foreground mb-4">
+            Naturlig skjønnhet – med presisjon
           </h1>
-          
-          <p className="text-lg text-accent-light mb-8">Profesjonell skjønnhet og velvære i hjertet av Norge</p>
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Din profesjonelle skjønnhetssalong i Oslo. Vi tilbyr eksklusive 
-            behandlinger som vippebøy, PMU og laminering i en varm og 
-            profesjonell atmosfære.
+            Eksklusive behandlinger i hjertet av Oslo
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-accent-dark text-background hover:bg-accent-light transition">
-              Book behandling
-            </Button>
-            <Button className="border border-accent-dark text-foreground hover:bg-accent-dark hover:text-background transition">
-              Se våre tjenester
-            </Button>
+            <Link href={bookingUrl} className="inline-flex">
+              <Button className="bg-accent-dark text-background hover:bg-accent-light transition">
+                Book time
+              </Button>
+            </Link>
+            <Link href="/behandlinger" className="inline-flex">
+              <Button variant="outline" className="border border-accent-dark text-foreground hover:bg-accent-dark hover:text-background transition">
+                Se våre tjenester
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
