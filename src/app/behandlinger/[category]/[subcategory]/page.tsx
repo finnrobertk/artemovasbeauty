@@ -7,13 +7,13 @@ import { urlFor } from '../../../../../sanity/lib/client'
 import { Breadcrumbs } from '../../../../components/ui/Breadcrumbs'
 
 interface Params {
-  params: { category: string; subcategory: string }
+  params: Promise<{ category: string; subcategory: string }>
 }
 
 export const revalidate = 60
 
 export default async function SubcategoryPage({ params }: Params) {
-  const { subcategory } = params
+  const { category: categorySlug, subcategory } = await params
   const sub = await client.fetch(treatmentSubcategoryBySlugQuery, { slug: subcategory })
 
   if (!sub) {
@@ -24,7 +24,7 @@ export default async function SubcategoryPage({ params }: Params) {
           <p className="text-muted-foreground mt-2">Siden finnes ikke eller er ikke publisert.</p>
         </header>
         <div className="text-sm">
-          <Link href={`/behandlinger/${params.category}`}>Tilbake til {params.category}</Link>
+          <Link href={`/behandlinger/${categorySlug}`}>Tilbake til {categorySlug}</Link>
         </div>
       </main>
     )
@@ -71,7 +71,7 @@ export default async function SubcategoryPage({ params }: Params) {
       )}
 
       <div className="mt-8 text-sm">
-        <Link href={`/behandlinger/${params.category}`}>← Tilbake til {params.category}</Link>
+        <Link href={`/behandlinger/${categorySlug}`}>← Tilbake til {categorySlug}</Link>
       </div>
     </main>
   )

@@ -6,13 +6,13 @@ import { Breadcrumbs } from '../../../components/ui/Breadcrumbs'
 import { TestimonialsList } from '../../../components/sections/TestimonialsList'
 
 interface Params {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export const revalidate = 60
 
 export default async function TreatmentPage({ params }: Params) {
-  const { slug } = params
+  const { slug } = await params
   const treatment = await client.fetch(treatmentBySlugQuery, { slug })
   const testimonials = treatment
     ? await client.fetch(testimonialsForTreatmentQuery, { slug })

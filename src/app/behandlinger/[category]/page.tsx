@@ -6,16 +6,17 @@ import { TreatmentsGrid } from '@/components/sections/TreatmentsGrid'
 import { Breadcrumbs } from '../../../components/ui/Breadcrumbs'
 
 interface Params {
-  params: { category: string }
+  params: Promise<{ category: string }>
 }
 
 export const revalidate = 60
 
 export default async function CategoryPage({ params }: Params) {
-  const slug = params.category
-  const category = await client.fetch(treatmentCategoryBySlugQuery, { slug })
+  const { category: categorySlug } = await params
+  const slug = categorySlug
+  const categoryData = await client.fetch(treatmentCategoryBySlugQuery, { slug })
 
-  if (!category) {
+  if (!categoryData) {
     return (
       <main className="container mx-auto px-4 py-12">
         <header className="mb-8">
@@ -29,10 +30,10 @@ export default async function CategoryPage({ params }: Params) {
     )
   }
 
-  const title = category.title ?? 'Kategori'
-  const hasSubs = Boolean(category.hasSubcategories)
-  const subcategories = category.subcategories ?? []
-  const treatments = category.treatments ?? []
+  const title = categoryData.title ?? 'Kategori'
+  const hasSubs = Boolean(categoryData.hasSubcategories)
+  const subcategories = categoryData.subcategories ?? []
+  const treatments = categoryData.treatments ?? []
 
   return (
     <main className="container mx-auto px-4 py-12">
@@ -44,8 +45,8 @@ export default async function CategoryPage({ params }: Params) {
           ]}
         />
         <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
-        {category.description ? (
-          <p className="text-muted-foreground mt-2">{category.description}</p>
+        {categoryData.description ? (
+          <p className="text-muted-foreground mt-2">{categoryData.description}</p>
         ) : null}
       </header>
 
