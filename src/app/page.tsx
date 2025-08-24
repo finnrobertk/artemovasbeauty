@@ -8,9 +8,10 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-foreground mb-6">
             Velkommen til{' '}
-            <span className="bg-gradient-gold bg-clip-text text-transparent">Artemova's Beauty</span>
+            <span className="bg-gradient-gold bg-clip-text text-transparent">Artemova&apos;s Beauty</span>
           </h1>
           
+          <p className="text-lg text-accent-light mb-8">Profesjonell skjønnhet og velvære i hjertet av Norge</p>
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
             Din profesjonelle skjønnhetssalong i Oslo. Vi tilbyr eksklusive 
             behandlinger som vippebøy, PMU og laminering i en varm og 

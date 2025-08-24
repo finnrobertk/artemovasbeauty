@@ -45,6 +45,19 @@ src/
     └── index.ts           # TypeScript typer
 ```
 
+## 📌 Prosjektstatus
+
+- Status: Phase 2 (Sanity CMS) pågår
+- Siste: Oppdatert hero-typografi og knapper i `src/app/page.tsx`
+- Neste: Koble forsiden mot Sanity-innhold og verifisere schemer
+
+## ✅ TODO (kort sikt)
+
+- [ ] Fullføre og verifisere Sanity-skjemaer: `page`, `service`, `siteSettings`
+- [ ] Koble Next.js til Sanity via GROQ i `sanity/lib/queries.ts`
+- [ ] Hente hero/innhold på forsiden fra Sanity
+- [ ] Legge inn eksempeldata i Sanity Studio
+
 ## 🛠️ Utvikling
 
 ### Forutsetninger
