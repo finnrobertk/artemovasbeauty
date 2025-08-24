@@ -1,17 +1,19 @@
 import Image from 'next/image'
 import { urlFor } from '../../../sanity/lib/client'
 import { RichText } from '../ui/RichText'
+import type { PortableTextBlock } from '@portabletext/types'
+import type { SanityImage } from '../../../sanity/lib/types'
 
 export type Treatment = {
   _id: string
   title: string
   slug?: { current: string }
   description?: string
-  content?: any
-  beforeCare?: any
-  aftercare?: any
-  beforeImage?: any
-  afterImage?: any
+  content?: PortableTextBlock[]
+  beforeCare?: PortableTextBlock[]
+  aftercare?: PortableTextBlock[]
+  beforeImage?: SanityImage
+  afterImage?: SanityImage
   priceFrom?: number
   duration?: string
 }

@@ -1,10 +1,11 @@
-import { SubcategoryCard } from '@/components/ui/SubcategoryCard'
+import { SubcategoryCard } from '../ui/SubcategoryCard'
+import type { SanityImage } from '../../../sanity/lib/types'
 
 export type Subcategory = {
   _id: string
   title: string
   slug?: { current: string }
-  image?: any
+  image?: SanityImage
   treatment?: {
     _id: string
     title: string
@@ -12,7 +13,7 @@ export type Subcategory = {
     description?: string
     priceFrom?: number
     duration?: string
-    afterImage?: any
+    afterImage?: SanityImage
   } | null
 }
 

@@ -1,4 +1,5 @@
-import { TreatmentCard } from '@/components/ui/TreatmentCard'
+import { TreatmentCard } from '../ui/TreatmentCard'
+import type { SanityImage } from '../../../sanity/lib/types'
 
 export type TreatmentItem = {
   _id: string
@@ -7,7 +8,7 @@ export type TreatmentItem = {
   description?: string
   priceFrom?: number
   duration?: string
-  afterImage?: any
+  afterImage?: SanityImage
 }
 
 export function TreatmentsGrid({ treatments }: { treatments: TreatmentItem[] }) {

@@ -1,4 +1,5 @@
 import { PortableText, PortableTextComponents } from '@portabletext/react'
+import type { PortableTextBlock } from '@portabletext/types'
 
 const components: PortableTextComponents = {
   types: {},
@@ -22,7 +23,7 @@ const components: PortableTextComponents = {
   },
 }
 
-export function RichText({ value }: { value: any }) {
+export function RichText({ value }: { value?: PortableTextBlock[] | null }) {
   if (!value) return null
   return <PortableText value={value} components={components} />
 }

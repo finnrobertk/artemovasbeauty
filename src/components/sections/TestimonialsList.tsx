@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import { urlFor } from '../../../sanity/lib/client'
+import type { SanityImage } from '../../../sanity/lib/types'
 
 export type Testimonial = {
   _id: string
   name?: string
   review?: string
   rating?: number
-  image?: any
+  image?: SanityImage
   publishedAt?: string
 }
 

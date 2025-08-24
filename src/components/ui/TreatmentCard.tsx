@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { urlFor } from '../../../sanity/lib/client'
+import type { SanityImage } from '../../../sanity/lib/types'
 
 export type TreatmentItem = {
   _id: string
@@ -9,7 +10,7 @@ export type TreatmentItem = {
   description?: string
   priceFrom?: number
   duration?: string
-  afterImage?: any
+  afterImage?: SanityImage
 }
 
 export function TreatmentCard({ treatment }: { treatment: TreatmentItem }) {

@@ -1,10 +1,11 @@
-import { CategoryCard } from '@/components/ui/CategoryCard'
+import { CategoryCard } from '../ui/CategoryCard'
+import type { SanityImage } from '../../../sanity/lib/types'
 
 type Category = {
   _id: string
   title: string
   slug?: { current: string }
-  image?: any
+  image?: SanityImage
   description?: string
   hasSubcategories?: boolean
 }

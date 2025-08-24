@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { urlFor } from '../../../sanity/lib/client'
+import type { SanityImage } from '../../../sanity/lib/types'
 
 export type Subcategory = {
   _id: string
   title: string
   slug?: { current: string }
-  image?: any
+  image?: SanityImage
 }
 
 export function SubcategoryCard({
