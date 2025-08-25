@@ -8,7 +8,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-foreground mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold mb-4 bg-gold-text bg-clip-text text-transparent">
             Naturlig skjønnhet – med presisjon
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">

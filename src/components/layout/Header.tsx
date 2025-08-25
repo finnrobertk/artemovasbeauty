@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="font-semibold tracking-tight text-lg">
-            Artemova&#39;s Beauty
+            <span className="bg-gold-text bg-clip-text text-transparent">Artemova&#39;s Beauty</span>
           </Link>
 
           {/* Desktop nav */}

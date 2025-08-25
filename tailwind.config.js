@@ -51,6 +51,9 @@ module.exports = {
       backgroundImage: {
         'gradient-gold': 'linear-gradient(135deg, #FFDD9E 0%, #DD9200 100%)',
         'gradient-gold-hover': 'linear-gradient(135deg, #DD9200 0%, #FFDD9E 100%)',
+        // Text-specific gold gradient using provided stops for a more realistic gold
+        // Stops: #F9F295, #E0AA3E, #FAF398, #B88A44
+        'gold-text': 'linear-gradient(135deg, #F9F295 0%, #E0AA3E 30%, #FAF398 60%, #B88A44 100%)',
       },
       spacing: {
         '18': '4.5rem',
