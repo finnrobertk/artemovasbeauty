@@ -12,7 +12,7 @@ export default async function BehandlingerPage() {
     return (
       <main className="container mx-auto px-4 py-12">
         <header className="mb-8">
-          <h1 className="text-3xl font-semibold tracking-tight">Behandlinger</h1>
+          <h1 className="text-3xl font-semibold tracking-tight text-gold">Behandlinger</h1>
           <p className="text-muted-foreground mt-2">Kategorier kommer snart. Prøv igjen senere.</p>
         </header>
         <div className="text-sm">
@@ -25,7 +25,7 @@ export default async function BehandlingerPage() {
   return (
     <main className="container mx-auto px-4 py-12">
       <header className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight">Behandlinger</h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-gold">Behandlinger</h1>
         <p className="text-muted-foreground mt-2">Velg en kategori for å se tilgjengelige behandlinger.</p>
       </header>
       <TreatmentCategoriesGrid categories={categories} />

@@ -10,9 +10,10 @@ module.exports = {
       colors: {
         // Dark theme brand colors
         background: '#1A1A1A',
-        foreground: '#F2EAB8',
+        foreground: '#C5B358',
+        gold: '#C5B358',
         primary: {
-          DEFAULT: '#F2EAB8',
+          DEFAULT: '#C5B358',
           foreground: '#1A1A1A',
         },
         accent: {
@@ -23,15 +24,15 @@ module.exports = {
         // Semantic colors based on brand palette
         card: {
           DEFAULT: '#2A2A2A',
-          foreground: '#F2EAB8',
+          foreground: '#C5B358',
         },
         popover: {
           DEFAULT: '#2A2A2A',
-          foreground: '#F2EAB8',
+          foreground: '#C5B358',
         },
         secondary: {
           DEFAULT: '#3A3A3A',
-          foreground: '#F2EAB8',
+          foreground: '#C5B358',
         },
         muted: {
           DEFAULT: '#3A3A3A',
@@ -39,11 +40,11 @@ module.exports = {
         },
         destructive: {
           DEFAULT: '#DC2626',
-          foreground: '#F2EAB8',
+          foreground: '#C5B358',
         },
         border: '#3A3A3A',
         input: '#3A3A3A',
-        ring: '#F2EAB8',
+        ring: '#C5B358',
       },
       fontFamily: {
         sans: ['Jost', 'system-ui', 'sans-serif'],
