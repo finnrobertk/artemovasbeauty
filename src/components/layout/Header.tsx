@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
 const NAV = [
@@ -21,20 +22,28 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="font-semibold tracking-tight text-lg">
-            <span className="bg-gold-text bg-clip-text text-transparent">Artemova&#39;s Beauty</span>
+          <Link href="/" className="flex items-center gap-2 shrink-0" aria-label="Artemova's Beauty">
+            <Image
+              src="/logo.svg"
+              alt="Artemova's Beauty"
+              width={160}
+              height={32}
+              priority
+              className="h-8 w-auto md:h-9 lg:h-10"
+            />
+            <span className="sr-only">Artemova&#39;s Beauty</span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-8 ml-4 md:ml-8">
             {NAV.map((item) => (
-              <Link key={item.href} href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
+              <Link key={item.href} href={item.href} className="text-sm text-muted-foreground hover:text-foreground whitespace-nowrap">
                 {item.label}
               </Link>
             ))}
             <Link
               href={bookingUrl}
-              className="inline-flex items-center rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background hover:opacity-90"
+              className="inline-flex items-center rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background hover:opacity-90 whitespace-nowrap"
             >
               Book time
             </Link>
@@ -44,7 +53,7 @@ export function Header() {
           <div className="md:hidden flex items-center gap-3">
             <Link
               href={bookingUrl}
-              className="inline-flex items-center rounded-md bg-foreground px-3 py-2 text-sm font-medium text-background hover:opacity-90"
+              className="inline-flex items-center rounded-md bg-foreground px-3 py-2 text-sm font-medium text-background hover:opacity-90 whitespace-nowrap"
             >
               Book
             </Link>

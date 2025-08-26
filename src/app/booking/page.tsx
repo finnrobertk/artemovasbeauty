@@ -9,9 +9,7 @@ export default function BookingPage() {
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/2.8.3/iframeResizer.min.js'
     script.async = true
     script.onload = () => {
-      // @ts-expect-error: iFrameResize is a global added by iframe-resizer script
       if (typeof iFrameResize === 'function') {
-        // @ts-expect-error: call global iFrameResize with selector
         iFrameResize({ checkOrigin: false }, '#reservationIframe58539')
       }
     }
