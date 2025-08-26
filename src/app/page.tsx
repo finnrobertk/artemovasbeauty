@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '../components/ui/button'
+import type { SanityImage } from '../../sanity/lib/types'
 import { client } from '../../sanity/lib/client'
 import { homepageQuery } from '../../sanity/lib/queries'
 import { TreatmentCard } from '../components/ui/TreatmentCard'
@@ -27,14 +28,14 @@ export default async function HomePage() {
       description?: string
       priceFrom?: number
       duration?: string
-      afterImage?: any
+      afterImage?: SanityImage
     }[]
     featuredTestimonials: {
       _id: string
       name?: string
       review?: string
       rating?: number
-      image?: any
+      image?: SanityImage
       publishedAt?: string
     }[]
   }>(homepageQuery)
