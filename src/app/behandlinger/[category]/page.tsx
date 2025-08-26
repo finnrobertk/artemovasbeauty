@@ -24,7 +24,7 @@ export default async function CategoryPage({ params }: Params) {
           <p className="text-muted-foreground mt-2">Kategorien finnes ikke eller er ikke publisert.</p>
         </header>
         <div className="text-sm">
-          <Link href="/behandlinger">Tilbake til kategorier</Link>
+          <Link href="/behandlinger">Tilbake til behandlinger</Link>
         </div>
       </main>
     )
@@ -66,7 +66,7 @@ export default async function CategoryPage({ params }: Params) {
       )}
 
       <div className="mt-8 text-sm">
-        <Link href="/behandlinger">← Tilbake til kategorier</Link>
+        <Link href="/behandlinger">← Tilbake til behandlinger</Link>
       </div>
     </main>
   )
