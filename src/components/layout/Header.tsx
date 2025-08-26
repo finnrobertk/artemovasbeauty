@@ -43,7 +43,7 @@ export function Header() {
             ))}
             <Link
               href={bookingUrl}
-              className="inline-flex items-center rounded-md bg-foreground px-4 py-2 text-sm font-medium text-background hover:opacity-90 whitespace-nowrap"
+              className="inline-flex items-center rounded-md bg-gradient-gold hover:bg-gradient-gold-hover px-4 py-2 text-sm font-medium text-background shadow-md whitespace-nowrap"
             >
               Book time
             </Link>
@@ -53,9 +53,9 @@ export function Header() {
           <div className="md:hidden flex items-center gap-3">
             <Link
               href={bookingUrl}
-              className="inline-flex items-center rounded-md bg-foreground px-3 py-2 text-sm font-medium text-background hover:opacity-90 whitespace-nowrap"
+              className="inline-flex items-center rounded-md bg-gradient-gold hover:bg-gradient-gold-hover px-3 py-2 text-sm font-medium text-background shadow-md whitespace-nowrap"
             >
-              Book
+              Book time
             </Link>
             <button
               aria-label="Meny"
