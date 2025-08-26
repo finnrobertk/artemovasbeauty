@@ -23,8 +23,8 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-medium">Kontakt</h4>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            <li>E-post: <a href="mailto:post@artemova.no" className="hover:text-foreground">post@artemova.no</a></li>
-            <li>Adresse: Oslo</li>
+            <li>E-post: <a href="mailto:artemovasbeauty@gmail.com" className="hover:text-foreground">artemovasbeauty@gmail.com</a></li>
+            <li>Adresse: Munkedamsveien 72B, 0270 Oslo</li>
           </ul>
         </div>
       </div>
