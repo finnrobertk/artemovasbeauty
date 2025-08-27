@@ -55,7 +55,8 @@ export function middleware(req: NextRequest) {
 // Exclude static assets and the coming-soon page from middleware
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|coming-soon).*)',
+    // Skip Next internals, known public files, coming-soon itself, and common static asset extensions
+    '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|coming-soon|.*\\.(?:png|jpg|jpeg|gif|webp|svg|ico|css|js|map|txt|xml|json|woff|woff2|ttf|otf)).*)',
   ],
 }
 
