@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const ENABLED = process.env.COMING_SOON === 'true'
 const BYPASS_KEY = 'demo123'
 const COOKIE_NAME = 'ab_preview_access'
 
 export function middleware(req: NextRequest) {
+  // Evaluate env at request time to avoid build-time capture
+  const ENABLED = process.env['COMING_SOON'] === 'true'
   if (!ENABLED) return NextResponse.next()
 
   const { pathname } = req.nextUrl
@@ -28,6 +29,17 @@ export function middleware(req: NextRequest) {
     return res
   }
 
+  // Clear bypass via query string ?clear=1 -> delete cookie and strip query
+  const clear = req.nextUrl.searchParams.get('clear')
+  if (clear === '1') {
+    const url = req.nextUrl.clone()
+    url.searchParams.delete('clear')
+    const res = NextResponse.redirect(url)
+    // Delete the cookie to force redirect back to coming-soon
+    res.cookies.delete(COOKIE_NAME)
+    return res
+  }
+
   // Bypass if user already has cookie
   if (req.cookies.get(COOKIE_NAME)?.value === '1') {
     return NextResponse.next()
@@ -46,3 +58,4 @@ export const config = {
     '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|coming-soon).*)',
   ],
 }
+

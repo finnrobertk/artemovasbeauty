@@ -9,10 +9,12 @@ import { TestimonialsList } from '../components/sections/TestimonialsList'
 
 // Robots: noindex if COMING_SOON=true
 import type { Metadata } from 'next'
-const COMING_SOON = process.env.COMING_SOON === 'true'
-export const metadata: Metadata = COMING_SOON
-  ? { robots: { index: false, follow: false, nocache: true } }
-  : {}
+export async function generateMetadata(): Promise<Metadata> {
+  const COMING_SOON = process.env['COMING_SOON'] === 'true'
+  return COMING_SOON
+    ? { robots: { index: false, follow: false, nocache: true } }
+    : {}
+}
 
 function getBookingUrl() {
   return process.env.NEXT_PUBLIC_BOOKING_URL || '/kontakt'
