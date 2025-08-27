@@ -46,7 +46,7 @@ export default async function HomePage() {
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 z-0">
           {/* Temporary stock image background (Glamour portrett) */}
           <Image
             src="/lash-extensions.jpg"
@@ -57,7 +57,7 @@ export default async function HomePage() {
           />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-28 lg:py-32 relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-gold-text bg-clip-text text-transparent">
               Naturlig skjønnhet – med presisjon
@@ -99,7 +99,7 @@ export default async function HomePage() {
 
       {/* Featured treatments */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 z-0">
           <Image
             src="/lash-extensions.jpg"
             alt="Behandlinger bakgrunn"
@@ -108,7 +108,7 @@ export default async function HomePage() {
             className="object-cover brightness-50"
           />
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Våre mest populære behandlinger</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {data?.featuredTreatments?.map((t) => (
