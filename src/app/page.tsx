@@ -3,9 +3,10 @@ import Image from 'next/image'
 import { Button } from '../components/ui/button'
 import type { SanityImage } from '../../sanity/lib/types'
 import { client } from '../../sanity/lib/client'
-import { homepageQuery } from '../../sanity/lib/queries'
+import { homepageQuery, treatmentCategoriesQuery } from '../../sanity/lib/queries'
 import { TreatmentCard } from '../components/ui/TreatmentCard'
 import { TestimonialsList } from '../components/sections/TestimonialsList'
+import { CategoryCard } from '../components/ui/CategoryCard'
 
 // Robots: noindex if COMING_SOON=true
 import type { Metadata } from 'next'
@@ -41,6 +42,17 @@ export default async function HomePage() {
       publishedAt?: string
     }[]
   }>(homepageQuery)
+
+  // Fetch categories for Behandlingsguide
+  const categories = await client.fetch<Array<{
+    _id: string
+    title: string
+    slug?: { current: string }
+    image?: SanityImage
+    description?: string
+    hasSubcategories?: boolean
+  }>>(treatmentCategoriesQuery)
+  const guideCategories = (categories || []).filter((c) => c?.hasSubcategories)
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -96,126 +108,30 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured treatments */}
+      {/* Featured treatments (dynamic) */}
       <section className="bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Våre mest populære behandlinger</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Lash Extensions */}
-            <div className="group overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow">
-              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                <Image
-                  src="/images/eyelashes.jpg"
-                  alt="Lash Extensions – skreddersydd vippeforlengelse"
-                  width={800}
-                  height={600}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-medium">Lash Extensions</h3>
-                <p className="mt-2 text-sm text-muted-foreground">Skreddersydd vippeforlengelse for et naturlig eller glamorøst blikk.</p>
-              </div>
-            </div>
-
-            {/* PMU Lepper */}
-            <div className="group overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow">
-              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                <Image
-                  src="/images/pmu-lepper.jpg"
-                  alt="PMU Lepper – fremhever leppenes form og farge"
-                  width={800}
-                  height={600}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-medium">PMU Lepper</h3>
-                <p className="mt-2 text-sm text-muted-foreground">Permanent makeup som fremhever leppenes form og farge.</p>
-              </div>
-            </div>
-
-            {/* Brynforming */}
-            <div className="group overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow">
-              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                <Image
-                  src="/images/hennabryn.jpg"
-                  alt="Brynforming – form, farge og strukturerte bryn"
-                  width={800}
-                  height={600}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="text-lg font-medium">Brynforming</h3>
-                <p className="mt-2 text-sm text-muted-foreground">Form, farge og strukturerte bryn med henna, laminering eller microblading.</p>
-              </div>
-            </div>
+            {(data?.featuredTreatments || []).length > 0 ? (
+              data.featuredTreatments.map((t) => <TreatmentCard key={t._id} treatment={t} />)
+            ) : (
+              <p className="text-muted-foreground">Ingen utvalgte behandlinger akkurat nå.</p>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Behandlingsguide */}
+      {/* Behandlingsguide (dynamic categories) */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl sm:text-3xl font-semibold">Utforsk behandlingene våre</h2>
         <p className="mt-2 text-muted-foreground">Se forskjellene og finn behandlingen som passer deg best</p>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Lash Extensions oversikt */}
-          <Link
-            href="/behandlinger/lash-extensions"
-            className="group block overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow"
-          >
-            <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-              <Image
-                src="/images/lash-extensions-oversikt.jpg"
-                alt="Lash Extensions oversikt – ulike stiler og lengder"
-                width={800}
-                height={600}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="text-lg font-medium">Lash Extensions</h3>
-            </div>
-          </Link>
-
-          {/* PMU Lepper oversikt */}
-          <Link
-            href="/behandlinger/pmu-lepper"
-            className="group block overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow"
-          >
-            <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-              <Image
-                src="/images/pmu-lepper-oversikt-farger.jpg"
-                alt="PMU Lepper oversikt – fargekart og resultater"
-                width={800}
-                height={600}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="text-lg font-medium">PMU Lepper</h3>
-            </div>
-          </Link>
-
-          {/* Microblading oversikt */}
-          <Link
-            href="/behandlinger/microblading"
-            className="group block overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow"
-          >
-            <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-              <Image
-                src="/images/microblading-oversikt.jpg"
-                alt="Microblading oversikt – form og hårstråeffekt"
-                width={800}
-                height={600}
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="text-lg font-medium">Microblading</h3>
-            </div>
-          </Link>
+          {guideCategories.length > 0 ? (
+            guideCategories.map((cat) => <CategoryCard key={cat._id} category={cat as any} />)
+          ) : (
+            <p className="text-muted-foreground">Kategorier kommer snart.</p>
+          )}
         </div>
       </section>
 
