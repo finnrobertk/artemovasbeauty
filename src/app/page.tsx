@@ -47,10 +47,9 @@ export default async function HomePage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* Temporary stock image background (Glamour portrett) */}
           <Image
-            src="/lash-extensions.jpg"
-            alt="Artemova's Beauty hero"
+            src="/images/eyelashes.jpg"
+            alt="Lash extensions påført – full-bredde hero fra Artemova's Beauty"
             fill
             priority
             className="object-cover brightness-50"
@@ -63,7 +62,7 @@ export default async function HomePage() {
               Naturlig skjønnhet – med presisjon
             </h1>
             <p className="mt-5 text-lg sm:text-xl text-muted-foreground max-w-2xl">
-              Skjønnhetssalong i hjertet av Oslo med spesialister på vipper, PMU og laminering.
+              Skjønnhetssalong i hjertet av Oslo med spesialister på vipper, PMU og bryn.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link href={bookingUrl} className="inline-flex">
@@ -88,32 +87,70 @@ export default async function HomePage() {
           <div>
             <h2 className="text-2xl sm:text-3xl font-semibold">Møt Eva – din skjønnhetsekspert</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus
-              et netus et malesuada fames ac turpis egestas. Integer at sem vel augue posuere feugiat. Suspendisse
-              potenti. Donec a risus sed lorem pulvinar accumsan.
+              Eva er lidenskapelig opptatt av skjønnhet og presisjon. Hun tilbyr behandlinger innen PMU, bryn og vipper –
+              og er kjent for sin rolige og profesjonelle tilnærming. Hos Artemova’s Beauty får du personlig oppfølging og
+              skreddersydde resultater.
             </p>
-            {/* Klargjort for bilde + kort bio i to kolonner. Bildet til venstre er placeholder */}
+            {/* Placeholder for profesjonelt portrett senere */}
           </div>
         </div>
       </section>
 
       {/* Featured treatments */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/lash-extensions.jpg"
-            alt="Behandlinger bakgrunn"
-            fill
-            priority={false}
-            className="object-cover brightness-50"
-          />
-        </div>
+      <section className="bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Våre mest populære behandlinger</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {data?.featuredTreatments?.map((t) => (
-              <TreatmentCard key={t._id} treatment={t} />
-            ))}
+            {/* Lash Extensions */}
+            <div className="group overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                <Image
+                  src="/images/eyelashes.jpg"
+                  alt="Lash Extensions – skreddersydd vippeforlengelse"
+                  width={800}
+                  height={600}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-lg font-medium">Lash Extensions</h3>
+                <p className="mt-2 text-sm text-muted-foreground">Skreddersydd vippeforlengelse for et naturlig eller glamorøst blikk.</p>
+              </div>
+            </div>
+
+            {/* PMU Lepper */}
+            <div className="group overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                <Image
+                  src="/images/pmu-lepper.jpg"
+                  alt="PMU Lepper – fremhever leppenes form og farge"
+                  width={800}
+                  height={600}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-lg font-medium">PMU Lepper</h3>
+                <p className="mt-2 text-sm text-muted-foreground">Permanent makeup som fremhever leppenes form og farge.</p>
+              </div>
+            </div>
+
+            {/* Brynforming */}
+            <div className="group overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+                <Image
+                  src="/images/hennabryn.jpg"
+                  alt="Brynforming – form, farge og strukturerte bryn"
+                  width={800}
+                  height={600}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-lg font-medium">Brynforming</h3>
+                <p className="mt-2 text-sm text-muted-foreground">Form, farge og strukturerte bryn med henna, laminering eller microblading.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
