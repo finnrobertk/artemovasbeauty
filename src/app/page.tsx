@@ -155,6 +155,70 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Behandlingsguide */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h2 className="text-2xl sm:text-3xl font-semibold">Utforsk behandlingene våre</h2>
+        <p className="mt-2 text-muted-foreground">Se forskjellene og finn behandlingen som passer deg best</p>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Lash Extensions oversikt */}
+          <Link
+            href="/behandlinger/lash-extensions"
+            className="group block overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow"
+          >
+            <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+              <Image
+                src="/images/lash-extensions-oversikt.jpg"
+                alt="Lash Extensions oversikt – ulike stiler og lengder"
+                width={800}
+                height={600}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-medium">Lash Extensions</h3>
+            </div>
+          </Link>
+
+          {/* PMU Lepper oversikt */}
+          <Link
+            href="/behandlinger/pmu-lepper"
+            className="group block overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow"
+          >
+            <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+              <Image
+                src="/images/pmu-lepper-oversikt-farger.jpg"
+                alt="PMU Lepper oversikt – fargekart og resultater"
+                width={800}
+                height={600}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-medium">PMU Lepper</h3>
+            </div>
+          </Link>
+
+          {/* Microblading oversikt */}
+          <Link
+            href="/behandlinger/microblading"
+            className="group block overflow-hidden rounded-lg border bg-muted hover:shadow-md transition-shadow"
+          >
+            <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
+              <Image
+                src="/images/microblading-oversikt.jpg"
+                alt="Microblading oversikt – form og hårstråeffekt"
+                width={800}
+                height={600}
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-medium">Microblading</h3>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl sm:text-3xl font-semibold mb-6">Hva kundene våre sier</h2>
