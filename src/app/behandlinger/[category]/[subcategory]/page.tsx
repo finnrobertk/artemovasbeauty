@@ -1,86 +1,71 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import type { Metadata } from 'next'
 import { client } from '../../../../../sanity/lib/client'
-import { treatmentSubcategoryBySlugQuery, treatmentBySlugQuery } from '../../../../../sanity/lib/queries'
-import { TreatmentDetail } from '../../../../components/sections/TreatmentDetail'
-import { urlFor } from '../../../../../sanity/lib/client'
-import { Breadcrumbs } from '../../../../components/ui/Breadcrumbs'
-
-interface Params {
-  params: Promise<{ category: string; subcategory: string }>
-}
+import { treatmentSubcategoryBySlugQuery } from '../../../../../sanity/lib/queries'
+import type { SanityImage } from '../../../../../sanity/lib/types'
+import { TreatmentDetail, type Treatment } from '@/components/sections/TreatmentDetail'
 
 export const revalidate = 60
 
+type Params = { params: Promise<{ category: string; subcategory: string }> }
+
+type Subcategory = {
+  _id: string
+  title: string
+  slug?: { current: string }
+  image?: SanityImage
+  category?: { title?: string; slug?: { current: string } }
+  treatment?: Treatment
+}
+
+async function getSubcategory(slug: string): Promise<Subcategory | null> {
+  const data = await client.fetch<Subcategory | null>(treatmentSubcategoryBySlugQuery, { slug })
+  return data || null
+}
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { subcategory } = await params
+  const sub = await getSubcategory(subcategory)
+  if (!sub) return { title: 'Behandling', description: 'Underkategori finnes ikke.' }
+  const baseTitle = sub.title
+  const desc = sub.treatment?.description || `Les mer om ${sub.title} hos Artemova's Beauty i Oslo.`
+  return { title: baseTitle, description: desc }
+}
+
 export default async function SubcategoryPage({ params }: Params) {
-  const { category: categorySlug, subcategory } = await params
-  const sub = await client.fetch(treatmentSubcategoryBySlugQuery, { slug: subcategory })
+  const { category, subcategory } = await params
+  const sub = await getSubcategory(subcategory)
 
   if (!sub) {
     return (
       <main className="container mx-auto px-4 py-12">
-        <header className="mb-8">
-          <h1 className="text-3xl font-semibold tracking-tight">Fant ikke underkategori</h1>
-          <p className="text-muted-foreground mt-2">Siden finnes ikke eller er ikke publisert.</p>
-        </header>
-        <div className="text-sm">
-          <Link href={`/behandlinger/${categorySlug}`}>Tilbake til {categorySlug}</Link>
-        </div>
+        <h1 className="text-3xl font-semibold">Underkategori finnes ikke</h1>
+        <p className="mt-2 text-muted-foreground">Prøv igjen senere eller gå tilbake.</p>
+        <div className="mt-6 text-sm"><Link href={`/behandlinger/${category}`}>Til kategori</Link></div>
       </main>
     )
   }
 
-  const hasImage = Boolean(sub.image)
-  let treatment = sub.treatment
-  // Hvis vi bare har en referanse/slim behandling, hent full behandling via slug
-  if (treatment?.slug?.current) {
-    const full = await client.fetch(treatmentBySlugQuery, { slug: treatment.slug.current })
-    treatment = full || treatment
-  }
-
   return (
-    <main className="container mx-auto px-4 py-12">
-      <header className="mb-8">
-        <Breadcrumbs
-          items={[
-            { label: 'Behandlinger', href: '/behandlinger' },
-            sub.category?.slug?.current
-              ? { label: sub.category.title || 'Kategori', href: `/behandlinger/${sub.category.slug.current}` }
-              : { label: 'Kategori' },
-            { label: sub.title },
-          ]}
-        />
-        <h1 className="text-3xl font-semibold tracking-tight">{sub.title}</h1>
-        {hasImage ? (
-          <div className="mt-6 overflow-hidden rounded-lg border">
-            <Image
-              src={urlFor(sub.image).width(1200).height(600).fit('crop').url()}
-              alt={sub.image?.alt || sub.title}
-              width={1200}
-              height={600}
-              className="h-auto w-full object-cover"
-            />
-          </div>
-        ) : null}
-      </header>
+    <main className="min-h-screen bg-background text-foreground">
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <header className="mb-6">
+          <h1 className="text-3xl sm:text-4xl font-semibold">{sub.title}</h1>
+          {sub.category?.title ? (
+            <p className="mt-2 text-muted-foreground">Kategori: {sub.category.title}</p>
+          ) : null}
+        </header>
 
-      {treatment ? (
-        <TreatmentDetail treatment={treatment} />
-      ) : (
-        <EmptyState message="Ingen tilknyttet behandling ennå." />
-      )}
+        {sub.treatment ? (
+          <TreatmentDetail treatment={sub.treatment} />
+        ) : (
+          <p className="text-muted-foreground">Behandling tilknyttet denne underkategorien er ikke publisert ennå.</p>
+        )}
 
-      <div className="mt-8 text-sm">
-        <Link href={`/behandlinger/${categorySlug}`}>← Tilbake til {categorySlug}</Link>
-      </div>
+        <div className="mt-8 text-sm">
+          <Link href={`/behandlinger/${category}`}>← Tilbake til {sub.category?.title || 'kategori'}</Link>
+        </div>
+      </section>
     </main>
-  )
-}
-
-function EmptyState({ message }: { message: string }) {
-  return (
-    <div className="rounded-lg border bg-card p-8 text-center text-muted-foreground">
-      {message}
-    </div>
   )
 }

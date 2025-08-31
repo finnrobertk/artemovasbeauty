@@ -14,7 +14,7 @@ export type TreatmentItem = {
 }
 
 export function TreatmentCard({ treatment }: { treatment: TreatmentItem }) {
-  const href = treatment.slug?.current ? `/behandling/${treatment.slug.current}` : '#'
+  const href = treatment.slug?.current ? `/behandlinger/${treatment.slug.current}` : '#'
   const hasImage = Boolean(treatment.afterImage)
 
   return (
