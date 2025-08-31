@@ -128,7 +128,7 @@ export default async function HomePage() {
         <p className="mt-2 text-muted-foreground">Se forskjellene og finn behandlingen som passer deg best</p>
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {guideCategories.length > 0 ? (
-            guideCategories.map((cat) => <CategoryCard key={cat._id} category={cat as any} />)
+            guideCategories.map((cat) => <CategoryCard key={cat._id} category={cat} />)
           ) : (
             <p className="text-muted-foreground">Kategorier kommer snart.</p>
           )}

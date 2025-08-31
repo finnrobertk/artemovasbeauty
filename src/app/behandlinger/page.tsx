@@ -2,6 +2,7 @@ import { client } from '../../../sanity/lib/client'
 import { treatmentCategoriesQuery } from '../../../sanity/lib/queries'
 import type { SanityImage } from '../../../sanity/lib/types'
 import { CategoryCard } from '@/components/ui/CategoryCard'
+import type { Metadata } from 'next'
 
 export const revalidate = 60
 
@@ -31,7 +32,7 @@ export default async function BehandlingerPage() {
 
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {guideCategories.length > 0 ? (
-            guideCategories.map((cat) => <CategoryCard key={cat._id} category={cat as any} />)
+            guideCategories.map((cat) => <CategoryCard key={cat._id} category={cat} />)
           ) : (
             <p className="text-muted-foreground">Kategorier kommer snart.</p>
           )}
