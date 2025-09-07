@@ -23,7 +23,7 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-medium">Kontakt</h4>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            <li>E-post: <a href="mailto:artemovasbeauty@gmail.com" className="hover:text-foreground">artemovasbeauty@gmail.com</a></li>
+            <li>E-post: E‑post kommer snart</li>
             <li>Adresse: Munkedamsveien 72B, 0270 Oslo</li>
           </ul>
         </div>
