@@ -4,12 +4,12 @@ import { Header } from '../components/layout/Header'
 import { Footer } from '../components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'Artemova\'s Beauty - Skjønnhetssalong i Oslo',
+  title: 'Naturlig Fake - Skjønnhetssalong i Oslo',
   description: 'Profesjonell skjønnhetssalong som tilbyr vippebøy, PMU og tannbleking. Book din behandling i dag.',
   keywords: ['skjønnhetssalong', 'vippebøy', 'PMU', 'tannbleking', 'Oslo', 'beauty salon'],
-  authors: [{ name: 'Artemova\'s Beauty' }],
+  authors: [{ name: 'Naturlig Fake' }],
   openGraph: {
-    title: 'Artemova\'s Beauty - Skjønnhetssalong i Oslo',
+    title: 'Naturlig Fake - Skjønnhetssalong i Oslo',
     description: 'Profesjonell skjønnhetssalong som tilbyr vippebøy, PMU og tannbleking.',
     type: 'website',
     locale: 'nb_NO',

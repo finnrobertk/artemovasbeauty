@@ -1,6 +1,6 @@
-# Artemova's Beauty - Skjønnhetssalong
+# Naturlig Fake - Skjønnhetssalong
 
-En moderne, responsiv nettside for Artemova's Beauty skjønnhetssalong bygget med Next.js 14 App Router, TypeScript, Tailwind CSS og Shadcn UI.
+En moderne, responsiv nettside for Naturlig Fake skjønnhetssalong bygget med Next.js 14 App Router, TypeScript, Tailwind CSS og Shadcn UI.
 
 ## 🚀 Teknologi
 

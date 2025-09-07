@@ -8,7 +8,7 @@ export const revalidate = 60
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Behandlinger hos Artemova's Beauty",
+    title: "Behandlinger hos Naturlig Fake",
     description: 'Utforsk vårt utvalg av profesjonelle skjønnhetsbehandlinger innen vipper, PMU og bryn.',
   }
 }

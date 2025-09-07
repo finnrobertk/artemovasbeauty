@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t bg-background">
       <div className="container mx-auto px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         <div>
-          <h3 className="text-sm font-semibold tracking-wide">Artemova&#39;s Beauty</h3>
+          <h3 className="text-sm font-semibold tracking-wide">Naturlig Fake</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             Naturlig skjønnhet – med presisjon.
           </p>
@@ -29,7 +29,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t py-4 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Artemova&#39;s Beauty. Alle rettigheter forbeholdt.
+        © {new Date().getFullYear()} Naturlig Fake. Alle rettigheter forbeholdt.
       </div>
     </footer>
   )

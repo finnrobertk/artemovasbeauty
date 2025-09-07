@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Kommer snart | Artemova\'s Beauty',
+  title: 'Kommer snart | Naturlig Fake',
   robots: { index: false, follow: false },
 }
 
@@ -10,7 +10,7 @@ export default function ComingSoonPage() {
   return (
     <main className="min-h-[70vh] container mx-auto px-4 py-24 flex flex-col items-center justify-center text-center">
       <div className="max-w-2xl">
-        <p className="text-sm uppercase tracking-widest text-muted-foreground">Artemova&#39;s Beauty</p>
+        <p className="text-sm uppercase tracking-widest text-muted-foreground">Naturlig Fake</p>
         <h1 className="mt-3 text-4xl font-semibold tracking-tight">Nettsiden kommer snart</h1>
         <p className="mt-4 text-muted-foreground">
           Vi jobber med en ny opplevelse. Kom tilbake snart, eller følg oss på sosiale medier for oppdateringer.

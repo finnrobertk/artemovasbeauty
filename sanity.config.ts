@@ -4,8 +4,8 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemas'
 
 export default defineConfig({
-  name: 'artemova-beauty',
-  title: 'Artemova Beauty',
+  name: 'Naturlig-Fake',
+  title: 'Naturlig Fake',
   
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '',
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',

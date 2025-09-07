@@ -22,17 +22,17 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="Artemova's Beauty">
+          <Link href="/" className="flex items-center gap-3 shrink-0" aria-label="Naturlig Fake">
             <Image
               src="/Logo-uten-tekst.svg"
-              alt="Artemova's Beauty"
+              alt="Naturlig Fake"
               width={160}
               height={32}
               priority
               className="h-8 w-auto md:h-9 lg:h-10"
             />
             <span className="hidden sm:inline font-sans font-normal text-[#F2EAB8] text-xl md:text-2xl">Naturlig Fake</span>
-            <span className="sr-only">Artemova&#39;s Beauty</span>
+            <span className="sr-only">Naturlig Fake</span>
           </Link>
 
           {/* Desktop nav */}

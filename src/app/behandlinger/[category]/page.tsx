@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!cat) return { title: 'Behandlinger', description: 'Kategorier kommer snart.' }
   return {
     title: cat.title,
-    description: cat.description || `Utforsk ${cat.title} hos Artemova's Beauty i Oslo.`,
+    description: cat.description || `Utforsk ${cat.title} hos Naturlig Fake i Oslo.`,
   }
 }
 

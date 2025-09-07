@@ -61,7 +61,7 @@ export default async function HomePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/eyelashes.jpg"
-            alt="Lash extensions påført – full-bredde hero fra Artemova's Beauty"
+            alt="Lash extensions påført – full-bredde hero fra Naturlig Fake"
             fill
             priority
             className="object-cover brightness-50"
@@ -92,15 +92,15 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Eva intro placeholder */}
+      {/* Om oss intro placeholder */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="aspect-[4/3] rounded-xl bg-card/60 border border-border" />
           <div>
-            <h2 className="text-2xl sm:text-3xl font-semibold">Møt Eva – din skjønnhetsekspert</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold">Møt oss – dine skjønnhetseksperter</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              Eva er lidenskapelig opptatt av skjønnhet og presisjon. Hun tilbyr behandlinger innen PMU, bryn og vipper –
-              og er kjent for sin rolige og profesjonelle tilnærming. Hos Artemova’s Beauty får du personlig oppfølging og
+              Vi er lidenskapelig opptatt av skjønnhet og presisjon. Vi tilbyr behandlinger innen PMU, bryn og vipper –
+              og er kjent for vår rolige og profesjonelle tilnærming. Hos Naturlig Fake får du personlig oppfølging og
               skreddersydde resultater.
             </p>
             {/* Placeholder for profesjonelt portrett senere */}

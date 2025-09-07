@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const sub = await getSubcategory(subcategory)
   if (!sub) return { title: 'Behandling', description: 'Underkategori finnes ikke.' }
   const baseTitle = sub.title
-  const desc = sub.treatment?.description || `Les mer om ${sub.title} hos Artemova's Beauty i Oslo.`
+  const desc = sub.treatment?.description || `Les mer om ${sub.title} hos Naturlig Fake i Oslo.`
   return { title: baseTitle, description: desc }
 }
 
